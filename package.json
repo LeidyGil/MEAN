@@ -1,0 +1,23 @@
+{
+  "name": "mean-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeidyGil/MEAN.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeidyGil/MEAN/issues"
+  },
+  "homepage": "https://github.com/LeidyGil/MEAN#readme",
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
