@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-body">
+    <form (submit)="addTask($event)">
+      <div class="input-group">
+        <input type="text" name="title" [(ngModel)]="title" placeholder="Add Task" class="form-control">
+          <span class="input-group-addon">
+            <button type="submit" class="btn btn-primary">
+              Add Task
+            </button>
+          </span>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Title</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>
+        <input type="checkbox" [checked]="task.isDone" (click)="updateTask(task)">
+      </td>
+      <td>
+        {{ task.title }}
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteTask(task._id)">
+        <!-- <i class="fa fa-trash"></i> -->
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
