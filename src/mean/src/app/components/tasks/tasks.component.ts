@@ -14,6 +14,7 @@ import { Task } from '../../Task'
 export class TasksComponent implements OnInit {
   tasks: Task[];
   title: string;
+  value: string;
 
   constructor(private taskService: TaskService) { 
     this.taskService.getTask()
@@ -31,12 +32,14 @@ export class TasksComponent implements OnInit {
     event.preventDefault();
     const newTask: Task = {
       title: this.title,
+      value: this.value,
       isDone: false
     };
     this.taskService.addTask(newTask)
     .subscribe(task => {
       this.tasks.push(task);
       this.title = '';
+      this.value = '';
     });
   }
 
@@ -62,6 +65,7 @@ export class TasksComponent implements OnInit {
     const newTask = {
       _id: task._id,
       title: task.title,
+      value: task.value,
       isDone: !task.isDone
     };
     this.taskService.updateTask(newTask)
