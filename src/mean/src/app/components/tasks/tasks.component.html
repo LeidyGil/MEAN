@@ -1,45 +1,48 @@
-<div class="card">
-  <div class="card-body">
-    <form (submit)="addTask($event)">
-      <div class="input-group">
-        <input type="text" name="title" [(ngModel)]="title" placeholder="Elemento" class="form-control">
-        <input type="text" name="value" [(ngModel)]="value" placeholder="Valor del elemento" class="form-control">
-          <span class="input-group-addon">
-            <button type="submit" class="btn btn-primary">
-              Agregar Elemento
-            </button>
-          </span>
-      </div>
-    </form>
-  </div>
+<section>
+    <div class="card">
+        <div class="card-body">
+          <form (submit)="addTask($event)">
+            <div class="input-group">
+              <input type="text" name="title" [(ngModel)]="title" placeholder="Elemento" class="form-control">
+              <input type="text" name="value" [(ngModel)]="value" placeholder="Valor del elemento" class="form-control">
+                <span class="input-group-addon">
+                  <button type="submit" class="btn btn-primary">
+                    Agregar
+                  </button>
+                </span>
+            </div>
+          </form>
+       </div>
+    </div>
+<div>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Estado</th>
+            <th>Título</th>
+            <th>Valor</th>
+            <th>Operaciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks">
+            <td>
+              <input type="checkbox" [checked]="task.isDone" (click)="updateTask(task)">
+            </td>
+            <td>
+              {{ task.title }}
+            </td>
+            <td>
+              {{ task.value }}
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteTask(task._id)">
+              <!--<i class="fa fa-trash"></i>-->
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 </div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Estado</th>
-      <th>Titulo</th>
-      <th>Valor</th>
-      <th>Operaciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let task of tasks">
-      <td>
-        <input type="checkbox" [checked]="task.isDone" (click)="updateTask(task)">
-      </td>
-      <td>
-        {{ task.title }}
-      </td>
-      <td>
-        {{ task.value }}
-      </td>
-      <td>
-        <button class="btn btn-danger" (click)="deleteTask(task._id)">
-        <i class="fa fa-trash"></i>
-          <!--Delete-->
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+</section>
